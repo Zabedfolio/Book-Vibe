@@ -5,6 +5,14 @@ import { Link } from 'react-router';
 const ListedWishList = () => {
     const { wishlist } = useContext(BookContext);
 
+    if(wishlist.length === 0) return (
+    <div className="flex flex-col items-center justify-center py-20 text-center">
+        <div className="text-6xl mb-4">🌟</div>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">Your Wishlist is Empty</h2>
+        <p className="text-gray-400 text-sm">Add books to your wishlist to keep track of what you want to read next.</p>
+    </div>
+)
+
     return (
         <div className="w-11/12 mx-auto py-10">
             {wishlist.map((book, ind) => (
