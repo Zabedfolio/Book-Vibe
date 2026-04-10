@@ -7,7 +7,7 @@ const BookDetails = () => {
     const books = useLoaderData();
     const expectedBook = books.find(book => book.bookId == id);
 
-    const {handleMarkAsRead, storedBooks} = useContext(BookContext)
+    const {handleMarkAsRead, storedBooks, handleWishList} = useContext(BookContext)
     // console.log(handleMarkAsRead, storedBooks)
     
 
@@ -67,7 +67,7 @@ const BookDetails = () => {
 
                     <div className="flex gap-3 pt-2">
                         <button onClick={()=> handleMarkAsRead(expectedBook)} className="px-6 py-2 rounded-xl border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-50 transition">Mark as Read</button>
-                        <button className="px-6 py-2 rounded-xl bg-cyan-400 text-white text-sm font-medium hover:bg-cyan-500 transition">Add to Wishlist</button>
+                        <button onClick={()=> handleWishList(expectedBook)} className="px-6 py-2 rounded-xl bg-cyan-400 text-white text-sm font-medium hover:bg-cyan-500 transition">Add to Wishlist</button>
                     </div>
                 </div>
             </div>
