@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { RouterProvider } from 'react-router';
 import { router } from './components/routes/Routes';
+import BookProvider from './components/context/BookContext';
 
 
 
@@ -10,6 +11,8 @@ import { router } from './components/routes/Routes';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <BookProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </BookProvider>
   </StrictMode>,
 )
